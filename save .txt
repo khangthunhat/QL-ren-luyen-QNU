@@ -1,0 +1,21 @@
+SELECT COALESCE(thongbao.tieude, 'chưa có nội dung') AS tieude, COALESCE(thongbao.noidung, 'chưa có thông báo') AS noidung 
+FROM students
+LEFT JOIN lop ON students.lop_id = lop.id
+LEFT JOIN thongbao ON thongbao.magv = lop.magiaovienchunhiem
+WHERE students.masv = '4351010004';
+
+SELECT students.*, lop_students.tenlop, 
+       COALESCE(tongdiem.totalScore, 'chưa nhập điểm') AS totalScore, 
+       COALESCE(tongdiem.totaltapthedanhgia, 'chưa nhập điểm') AS totaltapthedanhgia
+FROM students
+JOIN lop AS lop_students ON students.lop_id = lop_students.id
+LEFT JOIN tongdiem ON students.masv = tongdiem.username
+WHERE tongdiem.hocki = 'học kì I' AND tongdiem.namhoc = '2023-2024'
+
+
+tất cả pass đều 123456
+admin: admin1
+giaovien: GV101,GV102,GV103
+sinhvien: 4351050001
+          4351050002
+          4351050373
